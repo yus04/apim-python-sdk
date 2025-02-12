@@ -23,7 +23,7 @@ aoai_client = AzureOpenAI(
 
 response = aoai_client.chat.completions.create(
     model = model_deploy_name,
-    messages=messages
+    messages = messages
 )
 
 print(response.choices[0].message.content)
