@@ -9,7 +9,6 @@ load_dotenv()
 APIM_BASE_URL_FOR_LANGCHAIN_AOAI_ENDPOINT = os.getenv("APIM_BASE_URL_FOR_LANGCHAIN_AOAI_ENDPOINT")
 LANGCHAIN_AOAI_API_VERSION = os.getenv("LANGCHAIN_AOAI_API_VERSION")
 LANGCHAIN_AOAI_DEPLOYMENT_NAME = os.getenv("LANGCHAIN_AOAI_DEPLOYMENT_NAME")
-LANGCHAIN_AOAI_API_KEY = os.getenv("LANGCHAIN_AOAI_API_KEY")
 OCP_APIM_SUBSCRIPTION_KEY = os.getenv("OCP_APIM_SUBSCRIPTION_KEY")
 
 # LangChain を通じて Azure OpenAI のチャットモデルを初期化
@@ -17,11 +16,8 @@ model = AzureChatOpenAI(
     azure_endpoint = APIM_BASE_URL_FOR_LANGCHAIN_AOAI_ENDPOINT,
     openai_api_version = LANGCHAIN_AOAI_API_VERSION,
     deployment_name = LANGCHAIN_AOAI_DEPLOYMENT_NAME,
-    openai_api_key = LANGCHAIN_AOAI_API_KEY,
+    openai_api_key = OCP_APIM_SUBSCRIPTION_KEY,
     temperature = 0.7,
-    default_headers = {
-        "Ocp-Apim-Subscription-Key": OCP_APIM_SUBSCRIPTION_KEY
-    }
 )
 
 # 翻訳のためのチャットプロンプトテンプレートを作成
